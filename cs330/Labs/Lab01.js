@@ -1,4 +1,4 @@
-function lab1() {
+function Lab01() {
 	var array1 = [];
 	var total = 0;
 	var array2 = [];
