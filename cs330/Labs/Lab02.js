@@ -11,6 +11,7 @@ function checkTime(twelveHour, popUp) {
 	if ((hour > 12) && (twelveHour == 0)) {
 		hour -= 12;
 	}
+	minute = String(minute).padStart(2, '0');
 	
 	var dateString = "It is currently " + hour + ":" + minute + " on " + day + " " + month + " " + year;
 	
