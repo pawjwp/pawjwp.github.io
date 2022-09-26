@@ -1,4 +1,7 @@
-
+/*
+Jeremy Parke
+Code based on gasket5
+*/
 var canvas;
 var gl;
 
@@ -19,11 +22,8 @@ function init()
 
 
     //
-    //  Initialize our data for the Sierpinski Gasket
+    //  Initialize our data
     //
-
-    // First, initialize the corners of our gasket with three positions.
-
 
     //
     //  Configure WebGL
@@ -59,46 +59,50 @@ function init()
     render();
 };
 
-function triangle(a, b, c)
+function line(a, b)
 {
-    positions.push(a, b, c);
+    positions.push(a, b);
 }
 
-function divideTriangle(a, b, c, count)
+function divideMountain(a1, b1, count)
 {
 
     // check for end of recursion
 
     if (count == 0) {
-        triangle(a, b, c);
+        line(a1, b1);
     }
     else {
-
-        //bisect the sides
-
-        var ab = mix(a, b, 0.5);
-        var ac = mix(a, c, 0.5);
-        var bc = mix(b, c, 0.5);
+		
+		//calculate lengths
+		var len = (b1[0] - a1[0])/3;
+		
+        //points 1/3rd through each side
+		var a2 = vec2(a1[0] + len, a1[1]); //a third of the way to the middle from a
+		var b2 = vec2(b1[0] - len, b1[1]); //a third of the way to the middle from b
+		
+		//point middle and up
+		var c = vec2(a1[0] + (b1[0] - a1[0]) / 2, len * (Math.sqrt(3))/2)
 
         --count;
 
-        // three new triangles
-
-        divideTriangle(a, ab, ac, count);
-        divideTriangle(c, ac, bc, count);
-        divideTriangle(b, bc, ab, count);
+        //generate lines of middle triangle
+		line(a2, c);
+		line(c, b2);
+        //further division for lines on either side
+        divideMountain(a1, a2, count);
+        divideMountain(b2, b1, count);
     }
 }
 
 function render()
 {
     var vertices = [
-        vec2(-1, -0.5),
-        vec2( 1, -0.5)
-    ];	
-    positions = vertices;
-    /*divideTriangle( vertices[0], vertices[1], vertices[2],
-                    numTimesToSubdivide);*/
+        vec2(-1.0, 0.0),
+        vec2( 1.0, 0.0)
+    ];
+    positions = [];
+    divideMountain( vertices[0], vertices[1], numTimesToSubdivide);
 
     gl.bufferSubData(gl.ARRAY_BUFFER, 0, flatten(positions));
     gl.clear( gl.COLOR_BUFFER_BIT );
