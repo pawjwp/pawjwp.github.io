@@ -93,16 +93,15 @@ function divideTriangle(a, b, c, count)
 function render()
 {
     var vertices = [
-        vec2(-1, -1),
-        vec2(0,  1),
-        vec2(1, -1)
-    ];
+        vec2(-1, -0.75),
+        vec2( 1, -0.75)
+    ];	
     positions = [];
-    divideTriangle( vertices[0], vertices[1], vertices[2],
-                    numTimesToSubdivide);
+    /*divideTriangle( vertices[0], vertices[1], vertices[2],
+                    numTimesToSubdivide);*/
 
     gl.bufferSubData(gl.ARRAY_BUFFER, 0, flatten(positions));
     gl.clear( gl.COLOR_BUFFER_BIT );
-    gl.drawArrays( gl.TRIANGLES, 0, positions.length );
+    gl.drawArrays( gl.LINES, 0, positions.length );
     positions = [];
 }
