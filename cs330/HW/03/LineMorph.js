@@ -207,7 +207,7 @@ function init() {
 	var dPositionLoc = gl.getAttribLocation(program, "dPosition");
 	gl.vertexAttribPointer(dPositionLoc, 2, gl.FLOAT, false, 0, 0);
 	gl.enableVertexAttribArray(dPositionLoc);
-	
+
 	aLoc = gl.getUniformLocation(program, "a");
 	bLoc = gl.getUniformLocation(program, "b");
 	cLoc = gl.getUniformLocation(program, "c");
@@ -250,12 +250,12 @@ function render() {
 	//gl.drawArrays( gl.LINE_LOOP, 0, aPoints.length );
 	//gl.drawArrays( gl.TRIANGLE_FAN, 0, aPoints.length );
 	//gl.drawArrays( gl.TRIANGLE_STRIP, 0, aPoints.length );
-	
+
 	aParam += aDelta;
 	bParam += bDelta;
 	cParam += cDelta;
 	dParam += dDelta;
-	
+
     if (aParam > 1.0)
 	{
 		aParam = 1.0;
@@ -266,7 +266,7 @@ function render() {
 		aParam = 0.0;
 		aDelta = 0.0;
 	}
-	
+
     if (bParam > 1.0)
 	{
 		bParam = 1.0;
@@ -277,7 +277,7 @@ function render() {
 		bParam = 0.0;
 		bDelta = 0.0;
 	}
-	
+
     if (cParam > 1.0)
 	{
 		cParam = 1.0;
@@ -288,7 +288,7 @@ function render() {
 		cParam = 0.0;
 		cDelta = 0.0;
 	}
-	
+
     if (dParam > 1.0)
 	{
 		dParam = 1.0;
@@ -299,20 +299,20 @@ function render() {
 		dParam = 0.0;
 		dDelta = 0.0;
 	}
-	
+
 	gl.uniform1f(aLoc, aParam);
 	gl.uniform1f(bLoc, bParam);
 	gl.uniform1f(cLoc, cParam);
 	gl.uniform1f(dLoc, dParam);
-	
-	
+
+
 	color[0] = (aParam*aColor[0])+(bParam*bColor[0])+(cParam*cColor[0])+(dParam*dColor[0]);
 	color[1] = (aParam*aColor[1])+(bParam*bColor[1])+(cParam*cColor[1])+(dParam*dColor[1]);
 	color[2] = (aParam*aColor[2])+(bParam*bColor[2])+(cParam*cColor[2])+(dParam*dColor[2]);
 	color[3] = (aParam*aColor[3])+(bParam*bColor[3])+(cParam*cColor[3])+(dParam*dColor[3]);
     gl.uniform4fv(colorLoc, color);
-	
-	
+
+
 	gl.drawArrays(gl.LINE_LOOP, 0, aPoints.length);
 
 
