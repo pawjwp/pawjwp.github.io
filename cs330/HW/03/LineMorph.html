@@ -12,21 +12,31 @@
 		Oops ... your browser doesn't support the HTML5 canvas element
 	</canvas>
 	<br>
-	<button id="Morph">Toggle Morphing</button>
+	<button id="Morph1">Morph 1</button>
+	<button id="Morph2">Morph 2</button>
+	<button id="Morph3">Morph 3</button>
+	<button id="Morph4">Morph 4</button>
 	<script id="vertex-shader" type="x-shader/x-vertex">
 	#version 300 es
 	in vec4 aPosition;
 	in vec4 bPosition;
-	uniform float t;
+	in vec4 cPosition;
+	in vec4 dPosition;
+	uniform float a;
+	uniform float b;
+	uniform float c;
+	uniform float d;
 
 	void main()
 	{
-	 gl_Position.x = (t * aPosition.x) + ((1.0 - t) * bPosition.x);
-	 gl_Position.y = (t * aPosition.y) + ((1.0 - t) * bPosition.y);
+	 //gl_Position.x = a*bPosition.x;
+	 //gl_Position.y = a*bPosition.y;
+	 gl_Position.x = (a*aPosition.x)+(b*bPosition.x)+(c*cPosition.x)+(d*dPosition.x);
+	 gl_Position.y = (a*aPosition.y)+(b*bPosition.y)+(c*cPosition.y)+(d*dPosition.y);
 	 gl_Position.z = 0.0;
 	 gl_Position.w = 1.0;
 	 gl_PointSize = 4.0;
-	 //gl_PointSize = 1.0+(t*20.0);
+	 //gl_PointSize = 1.0+(a*20.0);
 	}
 	</script> 
 	<script id="fragment-shader" type="x-shader/x-fragment">
