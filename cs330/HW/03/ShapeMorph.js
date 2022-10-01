@@ -313,7 +313,9 @@ function render() {
     gl.uniform4fv(colorLoc, color);
 
 
-	gl.drawArrays(gl.LINE_LOOP, 0, aPoints.length);
+	if ((aDelta == 0.0) ||(bDelta == 1.0) ||(cDelta == 1.0) ||(dDelta == 1.0)) {
+		gl.drawArrays(gl.LINE_LOOP, 0, aPoints.length);
+	} else gl.drawArrays(gl.LINE_LOOP, 0, aPoints.length);
 
 
     setTimeout(function (){requestAnimationFrame(render);}, delay);
