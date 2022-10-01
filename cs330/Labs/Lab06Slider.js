@@ -2,7 +2,8 @@
 var gl;
 var points;
 var colors;
-var sliderVal = 1;
+var sliderVal = 0;
+
 
 init();
 
@@ -14,27 +15,27 @@ function init()
     if ( !gl ) { alert( "WebGL isn't available" ); }
 
     points=[
-    vec2(-0.95,0.95),
-    vec2(0,0.95),
-    vec2(0.95,0.95),
-    vec2(-0.95,0.0),
-    vec2(0,0.0),
-    vec2(0.95,0.0),
+    vec2(-0.95, 0.95),
+    vec2( 0.00, 0.95),
+    vec2( 0.95, 0.95),
+    vec2(-0.95, 0.00),
+    vec2( 0.00, 0.00),
+    vec2( 0.95, 0.00),
     vec2(-0.95,-0.95),
-    vec2(0.0,-0.95),
-    vec2(0.95,-0.95)
+    vec2( 0.00,-0.95),
+    vec2( 0.95,-0.95)
     ];
 
     colors=[
-    vec4(     ,     ,     , 1.0 ),
-    vec4(     ,     ,     , 1.0 ),
-    vec4(     ,     ,     , 1.0 ),
-    vec4(     ,     ,     , 1.0 ),
-    vec4(     ,     ,     , 1.0 ),
-    vec4(     ,     ,     , 1.0 ),
-    vec4(     ,     ,     , 1.0 ),
-    vec4(     ,     ,     , 1.0 ),
-    vec4(     ,     ,     , 1.0 )
+    vec4( 0.75 , 0.0 , 1.0 , 1.0 ),
+    vec4( 0.5 , 0.0 , 1.0 , 1.0 ),
+    vec4( 0.25 , 0.0 , 1.0 , 1.0 ),
+    vec4( 0.625 , 0.25 , 0.75 , 1.0 ),
+    vec4( 0.5 , 0.25 , 0.75 , 1.0 ),
+    vec4( 0.375 , 0.25 , 0.75 , 1.0 ),
+    vec4( 0.3125 , 0.125 , 0.375 , 1.0 ),
+    vec4( 0.25 , 0.125 , 0.375 , 1.0 ),
+    vec4( 0.1875 , 0.125 , 0.375 , 1.0 )
     ];
     
     //
@@ -78,6 +79,10 @@ function render() {
 
     // use the variable from the slider event listener to determine how many
     // points to render
+	document.getElementById("slider").onchange = function(event) {
+        sliderVal = parseInt(event.target.value);
+        render();
+    };
 
-    gl.drawArrays( gl.POINTS, 0,      );
+    gl.drawArrays( gl.POINTS, 0, sliderVal );
 }

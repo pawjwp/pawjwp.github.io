@@ -1,16 +1,27 @@
 <!DOCTYPE html>
-<html><head>
+
+<html>
+<head>
 	<title>CS330 Lab 2</title>
-	<script src="Lab02.js"></script>
+	<script src="Lab02.js">
+	</script>
 </head>
+
 <body>
-	<input type="button" onclick="checkTime(document.getElementById('hours').selectedIndex, false);" value="Page">
-	<input type="button" onclick="checkTime(document.getElementById('hours').selectedIndex, true);" value="Alert">
-	
-	<select id="hours">
-		<option value="0">12-hour time</option>
-		<option value="1">24-hour time</option>
-	</select>
-	
-	<div id="timeOut"></div>
-</body></html>
+	<form>
+		<input onclick="checkTime(document.getElementById('hours').selectedIndex, false);" type="button" value="Page"> <input onclick="checkTime(document.getElementById('hours').selectedIndex, true);" type="button" value="Alert"> <select id="hours">
+			<option value="0">
+				12-hour time
+			</option>
+
+			<option value="1">
+				24-hour time
+			</option>
+		</select>
+	</form>
+
+
+	<div id="timeOut">
+	</div>
+</body>
+</html>

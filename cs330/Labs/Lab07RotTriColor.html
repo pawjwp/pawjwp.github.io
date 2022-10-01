@@ -1,49 +1,50 @@
 <!DOCTYPE html>
-<html>
 
-<title>Lab 07 Rotating Tri</title>
+<html>
+<head>
+	<title>Lab 07 Rotating Tri</title>
 </head>
 
 <body>
-<button id="Rotation">Toggle Rotation On-Off</button>
+	<canvas height="512" id="gl-canvas" width="512">
+	</canvas>
+	<br>
+	<button id="Rotation">Toggle Rotation On-Off</button> 
+	<script id="vertex-shader" type="x-shader/x-vertex">
+	#version 300 es
 
-<canvas id="gl-canvas" width="512" height="512"> </canvas>
+	in vec4 aPosition;
+	uniform float uTheta;
 
-<script id="vertex-shader" type="x-shader/x-vertex">
-#version 300 es
+	void main()
+	{
+	   float s = sin(uTheta);
+	   float c = cos(uTheta);
 
-in vec4 aPosition;
-uniform float uTheta;
+	   gl_Position.x = -s*aPosition.y + c*aPosition.x;
+	   gl_Position.y =  s*aPosition.x + c*aPosition.y;
+	   gl_Position.z = 0.0;
+	   gl_Position.w = 1.0;
 
-void main()
-{
-    float s = sin(uTheta);
-    float c = cos(uTheta);
+	}
+	</script> 
+	<script id="fragment-shader" type="x-shader/x-fragment">
+	#version 300 es
 
-    gl_Position.x = -s*aPosition.y + c*aPosition.x;
-    gl_Position.y =  s*aPosition.x + c*aPosition.y;
-    gl_Position.z = 0.0;
-    gl_Position.w = 1.0;
+	precision mediump float;
+	uniform vec4 aColor;
+	out vec4 fColor;
 
-}
-</script>
-
-<script id="fragment-shader" type="x-shader/x-fragment">
-#version 300 es
-
-precision mediump float;
-uniform vec4 aColor;
-out vec4 fColor;
-
-void main()
-{
-    fColor = aColor;
-}
-</script>
-
-<script src="../Common/initShaders.js"></script>
-<script src="../Common/MVnew.js"></script>
-<script src="Lab07RotTriColor.js"></script>
-
+	void main()
+	{
+	   fColor = aColor;
+	}
+	</script> 
+	<script src="../Common/initShaders.js">
+	</script> 
+	<script src="../Common/MVnew.js">
+	</script> 
+	<script src="Lab07RotTriColor.js">
+	</script>
 </body>
 </html>
