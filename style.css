@@ -1,0 +1,168 @@
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('fonts/bebas-neue/bebas-neue.woff2') format('woff2'),
+         url('fonts/bebas-neue/bebas-neue.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bebas Neue Book';
+    src: url('fonts/bebas-neue/bebas-neue-book.woff2') format('woff2'),
+         url('fonts/bebas-neue/bebas-neue-book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+	size-adjust: 125%;
+}
+
+@font-face {
+    font-family: 'Neutra Text';
+    src: url('fonts/neutra-text/neutra-text.woff2') format('woff2'),
+         url('fonts/neutra-text/neutra-text.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Minecraftia';
+    src: url('fonts/minecraftia/minecraftia.woff2') format('woff2'),
+         url('fonts/minecraftia/minecraftia.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+	height: 100%;
+	background-image: url("images/background.png");
+	background-color: #0b0c15;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	cursor: help;
+}
+
+body {
+	max-width: 1024px;
+	color: #ffffff;
+	font-size: 18px;
+	font-family: Arial;
+	margin: auto;
+}
+
+.content {
+	margin: 24px;
+}
+
+nav {
+	display: flex;
+	position: relative;
+	top: 0;
+	overflow: hidden;
+	height: auto;
+	flex-wrap: wrap;
+}
+
+.navbar-middle {
+	flex: 1 1 auto;
+	flex-wrap: wrap;
+}
+
+.navbar-right {
+	flex-wrap: nowrap;
+}
+
+.navbar-logo {
+	height: 40px;
+	padding-top: 12px;
+	padding-left: 8px;
+}
+
+.navbar-item {
+	flex-wrap: nowrap;
+	display: inline-block;
+	text-align: center;
+	padding: 20px 20px;
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: bold;
+	color: #b6d1ff;
+	float: left;
+}
+
+.navbar-item:hover {
+	background-color: #ffffff1f;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #b6d1ff;
+	font-family: 'Bebas Neue Book';
+	letter-spacing: 0.15em;
+}
+
+h1 {
+	margin-top: 0.5em;
+	margin-bottom: 0.25em;
+}
+
+h2 {
+	margin-top: 0.625em;
+	margin-bottom: 0.3125em;
+}
+
+h3 {
+	margin-top: 0.75em;
+	margin-bottom: 0.375em;
+}
+
+h4 {
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+}
+
+h5 {
+	margin-top: 1.25em;
+	margin-bottom: 0.625em;
+}
+
+h6 {
+	margin-top: 1.75em;
+	margin-bottom: 0.875em;
+}
+
+p {
+	margin-top: 0.75em;
+	margin-bottom: 0.375em;
+}
+
+.box-example {
+	background-color: #777;
+	width: 300px;
+	border: 10px solid #000;
+	border-radius: 10px;
+	padding: 50px;
+	margin: 20px;
+	overflow: auto;
+	white-space: normal;
+}
+
+.table-example ul {
+	
+}
+
+.table-example ul {
+	list-style-image: url(images/icon.ico);
+}
+
+.table-example ol {
+	list-style-type: upper-roman;
+}
+
+fieldset {
+	background-color: #07f3;
+}
+
+input[type=submit] {
+	border: 5px dashed #09f;
+}
