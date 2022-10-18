@@ -1,136 +1,79 @@
 <!DOCTYPE html>
+
 <html lang="en-US">
 <head>
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
 	<title>Celestial Remnants</title>
-	<link href="style.css" rel="stylesheet">
-	<link href="images/icon.ico" rel="icon">
+	<link href="style/style.css" rel="stylesheet">
+	<link href="style/navbar.css" rel="stylesheet">
+	<link href="style/images/icon.ico" rel="icon">
 </head>
+
 <body>
 	<div class="header">
-		<div id="navbar">
+		<div class="navbar">
 			<nav>
-				<img class="navbar-logo" src="images/small-logo-wide.png">
-				<div class="navbar-middle"></div>
+				<img class="navbar-logo" src="style/images/small-logo-wide.png">
+
+				<div class="navbar-middle">
+				</div>
+
+
 				<div class="navbar-right">
-					<a class="navbar-item" href="index.html">Home</a> <a class="navbar-item" href="features.html">Features</a> <a class="navbar-item" href="https://www.curseforge.com/minecraft/modpacks/celestial-remnants">Download</a>
+					<ul class="navbar-right">
+						<li class="navbar-item">
+							<a href="index.html">Home</a>
+						</li>
+
+
+						<li class="navbar-item">
+							<a href="features.html">Features</a>
+
+							<ul class="navbar-dropdown">
+								<li class="navbar-dropdown-item">
+									<a href="quests.html">Quests</a>
+								</li>
+
+
+								<li class="navbar-dropdown-item">
+									<a href="quests.html">Maps</a>
+								</li>
+
+
+								<li class="navbar-dropdown-item">
+									<a href="items.html">Items</a>
+								</li>
+
+
+								<li class="navbar-dropdown-item">
+									<a href="bags.html">Loot Bags</a>
+								</li>
+
+
+								<li class="navbar-dropdown-item">
+									<a href="tinkers.html">Tinker's Gear</a>
+								</li>
+							</ul>
+						</li>
+
+
+						<li class="navbar-item">
+							<a href="https://www.curseforge.com/minecraft/modpacks/celestial-remnants">Download</a>
+						</li>
+					</ul>
 				</div>
 			</nav>
 		</div>
 	</div>
-	<div class="content">
+
+
+	<div class="content active-content">
+	</div>
+
+
+	<div class="footer">
 		<div>
-			<h2>Development roles:</h2>
-			<p>I (Jeremy Parke) will be working alone and filling all development roles</p>
-		</div>
-		<div>
-			<h3>Need/Rationale/Focus:</h3>
-			<p>The purpose of this site is to promote and explain elements of Celestial Remnants, a Minecraft modpack I spent most my free time developing during my senior year of high school. Information will be provided about various parts of the modpack to try and encourage people to play it.</p>
-		</div>
-		<div>
-			<h4>Elements/Content:</h4>
-			<dl>
-				<dt>Home</dt>
-				<dd>Shows a few images to tease features of the modpack, includes logos, download/curseforge link, etc.</dd>
-				<dt>Quests</dt>
-				<dd>Explanation of the quest trees and style of questing in the modpack</dd>
-				<dt>Items</dt>
-				<dd>Explanation of the custom items that have been added and what some of them do</dd>
-				<dt>Tinkers'</dt>
-				<dd>Explanation of custom materials and how each of them integrates into tinker's construct</dd>
-				<dt>Maps</dt>
-				<dd>Showcases each of the maps created for the modpack, with a high quality render of each one</dd>
-				<dt>Loot bags</dt>
-				<dd>Explanation of the loot bag system and showcase of each of the loot bag types</dd>
-			</dl>
-		</div>
-		<div>
-			<h5>Target Audience:</h5>
-			<p>The target audience is people familiar with the Minecraft modding environment, especially 1.12.2 modding. Ideally people interested in expert-lite quest-based skyblock modpacks.</p>
-		</div>
-		<div>
-			<p><b>Design Goals:</b><br>
-			I would like the design of the site to be professional-looking but simple, with the goal of the site just being to provide information.</p>
-		</div>
-		<div>
-			<p><b>Limiting Factors:</b><br>
-			I will most likely be limited by what is taught in this class and what I have time to do. I want to include a lot of written content for the site, which isn't exactly needed to fulfill requirements in this class, so it is a bit of a time sink for little reason.</p>
-		</div>
-		<div>
-			<p><b>Development Schedule:</b><br></p>
-			<ul>
-				<li>Week 1:</li>
-				<li>Week 2: Website outline</li>
-				<li>Week 3: Navigation</li>
-				<li>Week 4: Text styling</li>
-				<li>Week 5: Images, colors</li>
-				<li>Weel 6: Basic text descriptions</li>
-				<li>Week 7: More text description detail and CSS development</li>
-				<li>Remaining weeks are unknown, likely making more general progress with writing text descriptions for each of the pages, as well as developing a professional-looking style for the page.</li>
-			</ul>
-		</div>
-		<div>
-			<p><b>Stylings:</b><br></p>
-			<p>Heading fonts: Bebas Neue or Neutra Text<br>
-			Label fonts: Neutra Text, Arial, or Minecraftia<br>
-			Text fonts: Arial</p>
-			<p>There are probably only two heading levels needed, standard sizes and weights, different fonts and colors. I'll set up style for all of the built in headings and use them as needed.<br>
-			There will be a background image with a background color of #0B0C15. There will be a mostly transparent white overlay over that to separate the middle of the page.<br>
-			Headings, emphasized text, and links will be #b6d1ff, the same color as the logo.<br>
-			Normal text will be white #ffffff.</p>
-		</div>
-		<div class="box-example">
-			<p>Text</p>
-		</div>
-		<div class="table-example">
-			<table>
-				<tr>
-					<th>A</th>
-					<th>E</th>
-					<th>I</th>
-				</tr>
-				<tr>
-					<td>O</td>
-					<td>U</td>
-					<td>Y</td>
-				</tr>
-				<tr>
-					<td>
-						<ul>
-							<li>Pie</li>
-							<li>Cake</li>
-							<li>Muffin</li>
-						</ul>
-					</td>
-					<td>
-						<ul>
-							<li>Orange</li>
-							<li>Apple</li>
-							<li>Strawberry</li>
-						</ul>
-					</td>
-					<td>
-						<ul>
-							<li>Red</li>
-							<li>Green</li>
-							<li>Blue</li>
-						</ul>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<div class="footer">
-			<div></div>
-		</div>
-		<div>
-			<form action="/action_page.php">
-				<fieldset> <label for="first-name">First name:</label> <input id="first-name" name="first-name" type="text"><br>
-					<br>
-					<label for="last-name">Last name:</label> <input id="last-name" name="last-name" type="text"><br>
-					<br>
-					<input type="submit" value="Submit">
-				</fieldset>
-			</form>
 		</div>
 	</div>
 </body>
