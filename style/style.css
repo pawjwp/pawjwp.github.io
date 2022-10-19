@@ -41,117 +41,30 @@ html {
 	background-attachment: fixed;
 }
 
+/*@media screen and (min-width: 1024px) {
+	html {
+		margin-left: calc(100vw - 100%);
+		margin-right: 0;
+	}
+}*/
+
 body {
 	max-width: 1024px;
 	color: #ffffff;
 	font-size: 18px;
 	font-family: Arial;
 	margin: auto;
+	overflow: overlay;
 }
 
 .content {
 	margin: 32px;
-}
-
-
-
-nav {
-	content: '';
-	display: flex;
-	top: 0;
-	height: auto;
-	flex-wrap: wrap;
-	font-size: 0px;
-	padding: 0;
-	position: relative;
-}
-
-.navbar-right {
-	flex-wrap: nowrap;
-	padding: 0;
-	right: 0;
-}
-
-.navbar-middle {
-	flex: 1 1 auto;
-	flex-wrap: wrap;
-}
-
-.navbar-logo {
-	height: 40px;
-	padding: 8px 0px 8px 8px;
-}
-
-.navbar-item {
-	flex-wrap: nowrap;
-	display: inline-block;
-	transition-duration: 0.1s;
-	text-align: center;
-	width: 130px;
-	position: relative;
-}
-
-.navbar-dropdown-item {
-	flex-wrap: nowrap;
-	transition-duration: 0.1s;
-	text-align: left;
-	float: right;
-	clear: both;
-	width: 100%;
-	width: 130px;
-}
-
-.navbar-item > a, .navbar-dropdown-item > a {
-	text-decoration: none;
-	font-weight: bold;
-	color: #b6d1ff;
-	font-family: 'Bebas Neue Book';
-	letter-spacing: 0.05em;
-	display: inline-block;
-	padding: 16px;
-}
-
-.navbar-item > a {
-	font-size: 20px;
-}
-
-.navbar-dropdown-item > a {
-	font-size: 15px;
-}
-
-.navbar-dropdown {
-	visibility: hidden;
-	opacity: 0;
-	display: none;
-	padding: 0;
-	margin-top: 0rem;
-	transition: all 0.1s ease;
-	position: absolute;
-	background-color: #0b0c15df;
-}
-
-.navbar-item:hover, .navbar-dropdown-item:hover {
-	background-color: #ffffff1f;
-	cursor: pointer;
-}
-
-.navbar-item-selected:after {
-	content: '';
-	display: block;
-	border: solid;
-	border-width: 2px;
-	border-radius: 2px;
-	margin: auto;
-	margin-bottom: -8px; /*set to double border-width plus margin-top*/
-	margin-top: 4px;
-	height: 0px;
-	width: 50%;
-}
-
-.navbar-item:hover > .navbar-dropdown, .navbar-dropdown:hover {
-	visibility: visible;
 	opacity: 1;
-	display: block;
+}
+
+.content:not(.active-content) {
+	display: none;
+	opacity: 0;
 }
 
 
