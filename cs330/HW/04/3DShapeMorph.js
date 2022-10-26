@@ -29,6 +29,7 @@ var shadedCube = function() {
 	var dDelta = 0.0;
 
 
+
 	var color = vec4(0.0, 0.0, 0.0, 1.0);
 
 	var aColor = vec4(0.0, 0.0, 0.0, 1.0);
@@ -419,9 +420,9 @@ var shadedCube = function() {
 	function quad(a, b, c, d) {
 		
 		
-		var t1 = subtract(aVertices[b], aVertices[a]);
-		var t2 = subtract(aVertices[c], aVertices[b]);
-		var aNormal = cross(t1, t2);
+		var at1 = subtract(aVertices[b], aVertices[a]);
+		var at2 = subtract(aVertices[c], aVertices[b]);
+		var aNormal = cross(at1, at2);
 		aNormal = vec3(aNormal);
 
 		aPositionsArray.push(aVertices[a]);
@@ -438,9 +439,9 @@ var shadedCube = function() {
 		aNormalsArray.push(aNormal);
 		
 		
-		var t1 = subtract(bVertices[b], bVertices[a]);
-		var t2 = subtract(bVertices[c], bVertices[b]);
-		var bNormal = cross(t1, t2);
+		var bt1 = subtract(bVertices[b], bVertices[a]);
+		var bt2 = subtract(bVertices[c], bVertices[b]);
+		var bNormal = cross(bt1, bt2);
 		bNormal = vec3(bNormal);
 
 		bPositionsArray.push(bVertices[a]);
@@ -457,9 +458,9 @@ var shadedCube = function() {
 		bNormalsArray.push(bNormal);
 		
 		
-		var t1 = subtract(cVertices[b], cVertices[a]);
-		var t2 = subtract(cVertices[c], cVertices[b]);
-		var cNormal = cross(t1, t2);
+		var ct1 = subtract(cVertices[b], cVertices[a]);
+		var ct2 = subtract(cVertices[c], cVertices[b]);
+		var cNormal = cross(ct1, ct2);
 		cNormal = vec3(cNormal);
 
 		cPositionsArray.push(cVertices[a]);
@@ -476,9 +477,9 @@ var shadedCube = function() {
 		cNormalsArray.push(cNormal);
 		
 		
-		var t1 = subtract(dVertices[b], dVertices[a]);
-		var t2 = subtract(dVertices[c], dVertices[b]);
-		var dNormal = cross(t1, t2);
+		var dt1 = subtract(dVertices[b], dVertices[a]);
+		var dt2 = subtract(dVertices[c], dVertices[b]);
+		var dNormal = cross(dt1, dt2);
 		dNormal = vec3(dNormal);
 
 		dPositionsArray.push(dVertices[a]);
