@@ -525,71 +525,82 @@ var shadedCube = function() {
 		gl.useProgram(program);
 
 		colorCube();
-		
-		
-		
-		
-		
-		
-		var aNBuffer = gl.createBuffer();
-		gl.bindBuffer(gl.ARRAY_BUFFER, aNBuffer);
+
+		// Load the data into the GPU
+		var aNormalBuffer = gl.createBuffer();
+		gl.bindBuffer(gl.ARRAY_BUFFER, aNormalBuffer);
 		gl.bufferData(gl.ARRAY_BUFFER, flatten(aNormalsArray), gl.STATIC_DRAW);
+		// Associate out shader variables with our data buffer
 		var aNormalLoc = gl.getAttribLocation(program, "aNormal");
 		gl.vertexAttribPointer(aNormalLoc, 3, gl.FLOAT, false, 0, 0);
 		gl.enableVertexAttribArray(aNormalLoc);
-		var aVBuffer = gl.createBuffer();
-		gl.bindBuffer(gl.ARRAY_BUFFER, aVBuffer);
-		gl.bufferData(gl.ARRAY_BUFFER, flatten(aPositionsArray), gl.STATIC_DRAW);
-		var aPositionLoc = gl.getAttribLocation(program, "aPosition");
-		gl.vertexAttribPointer(aPositionLoc, 4, gl.FLOAT, false, 0, 0);
-		gl.enableVertexAttribArray(aPositionLoc);
-		
-		var bNBuffer = gl.createBuffer();
-		gl.bindBuffer(gl.ARRAY_BUFFER, bNBuffer);
+
+		// Load the data into the GPU
+		var bNormalBuffer = gl.createBuffer();
+		gl.bindBuffer(gl.ARRAY_BUFFER, bNormalBuffer);
 		gl.bufferData(gl.ARRAY_BUFFER, flatten(bNormalsArray), gl.STATIC_DRAW);
+		// Associate out shader variables with our data buffer
 		var bNormalLoc = gl.getAttribLocation(program, "bNormal");
 		gl.vertexAttribPointer(bNormalLoc, 3, gl.FLOAT, false, 0, 0);
 		gl.enableVertexAttribArray(bNormalLoc);
-		var bVBuffer = gl.createBuffer();
-		gl.bindBuffer(gl.ARRAY_BUFFER, bVBuffer);
-		gl.bufferData(gl.ARRAY_BUFFER, flatten(bPositionsArray), gl.STATIC_DRAW);
-		var bPositionLoc = gl.getAttribLocation(program, "bPosition");
-		gl.vertexAttribPointer(bPositionLoc, 4, gl.FLOAT, false, 0, 0);
-		gl.enableVertexAttribArray(bPositionLoc);
-		
-		var cNBuffer = gl.createBuffer();
-		gl.bindBuffer(gl.ARRAY_BUFFER, cNBuffer);
+
+		// Load the data into the GPU
+		var cNormalBuffer = gl.createBuffer();
+		gl.bindBuffer(gl.ARRAY_BUFFER, cNormalBuffer);
 		gl.bufferData(gl.ARRAY_BUFFER, flatten(cNormalsArray), gl.STATIC_DRAW);
+		// Associate out shader variables with our data buffer
 		var cNormalLoc = gl.getAttribLocation(program, "cNormal");
 		gl.vertexAttribPointer(cNormalLoc, 3, gl.FLOAT, false, 0, 0);
 		gl.enableVertexAttribArray(cNormalLoc);
-		var cVBuffer = gl.createBuffer();
-		gl.bindBuffer(gl.ARRAY_BUFFER, cVBuffer);
-		gl.bufferData(gl.ARRAY_BUFFER, flatten(cPositionsArray), gl.STATIC_DRAW);
-		var cPositionLoc = gl.getAttribLocation(program, "cPosition");
-		gl.vertexAttribPointer(cPositionLoc, 4, gl.FLOAT, false, 0, 0);
-		gl.enableVertexAttribArray(cPositionLoc);
-		
-		var dNBuffer = gl.createBuffer();
-		gl.bindBuffer(gl.ARRAY_BUFFER, dNBuffer);
+
+		// Load the data into the GPU
+		var dNormalBuffer = gl.createBuffer();
+		gl.bindBuffer(gl.ARRAY_BUFFER, dNormalBuffer);
 		gl.bufferData(gl.ARRAY_BUFFER, flatten(dNormalsArray), gl.STATIC_DRAW);
+		// Associate out shader variables with our data buffer
 		var dNormalLoc = gl.getAttribLocation(program, "dNormal");
 		gl.vertexAttribPointer(dNormalLoc, 3, gl.FLOAT, false, 0, 0);
 		gl.enableVertexAttribArray(dNormalLoc);
-		var dVBuffer = gl.createBuffer();
-		gl.bindBuffer(gl.ARRAY_BUFFER, dVBuffer);
+
+
+
+
+
+		// Load the data into the GPU
+		var aBufferId = gl.createBuffer();
+		gl.bindBuffer(gl.ARRAY_BUFFER, aBufferId);
+		gl.bufferData(gl.ARRAY_BUFFER, flatten(aPositionsArray), gl.STATIC_DRAW);
+		// Associate out shader variables with our data buffer
+		var aPositionLoc = gl.getAttribLocation(program, "aPosition");
+		gl.vertexAttribPointer(aPositionLoc, 2, gl.FLOAT, false, 0, 0);
+		gl.enableVertexAttribArray(aPositionLoc);
+
+		// Load the data into the GPU
+		var bBufferId = gl.createBuffer();
+		gl.bindBuffer(gl.ARRAY_BUFFER, bBufferId);
+		gl.bufferData(gl.ARRAY_BUFFER, flatten(bPositionsArray), gl.STATIC_DRAW);
+		// Associate out shader variables with our data buffer
+		var bPositionLoc = gl.getAttribLocation(program, "bPosition");
+		gl.vertexAttribPointer(bPositionLoc, 2, gl.FLOAT, false, 0, 0);
+		gl.enableVertexAttribArray(bPositionLoc);
+
+		// Load the data into the GPU
+		var cBufferId = gl.createBuffer();
+		gl.bindBuffer(gl.ARRAY_BUFFER, cBufferId);
+		gl.bufferData(gl.ARRAY_BUFFER, flatten(cPositionsArray), gl.STATIC_DRAW);
+		// Associate out shader variables with our data buffer
+		var cPositionLoc = gl.getAttribLocation(program, "cPosition");
+		gl.vertexAttribPointer(cPositionLoc, 2, gl.FLOAT, false, 0, 0);
+		gl.enableVertexAttribArray(cPositionLoc);
+
+		// Load the data into the GPU
+		var dBufferId = gl.createBuffer();
+		gl.bindBuffer(gl.ARRAY_BUFFER, dBufferId);
 		gl.bufferData(gl.ARRAY_BUFFER, flatten(dPositionsArray), gl.STATIC_DRAW);
+		// Associate out shader variables with our data buffer
 		var dPositionLoc = gl.getAttribLocation(program, "dPosition");
-		gl.vertexAttribPointer(dPositionLoc, 4, gl.FLOAT, false, 0, 0);
+		gl.vertexAttribPointer(dPositionLoc, 2, gl.FLOAT, false, 0, 0);
 		gl.enableVertexAttribArray(dPositionLoc);
-		
-		
-		
-		
-		
-		
-		
-	
 
 		thetaLoc = gl.getUniformLocation(program, "theta");
 

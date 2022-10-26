@@ -80,8 +80,8 @@
 			if (dot(L, N) < 0.0) {
 				specular = vec4(0.0, 0.0, 0.0, 1.0);
 			}
-			gl_Position = uProjectionMatrix * uModelViewMatrix * aPosition;
-			//gl_Position = uProjectionMatrix * uModelViewMatrix * ((a * aPosition) + (b * bPosition) + (c * cPosition) + (d * dPosition));
+
+			gl_Position = uProjectionMatrix * uModelViewMatrix * ((a * aPosition) + (b * bPosition) + (c * cPosition) + (d * dPosition));
 			vColor = ambient + diffuse + specular;
 
 			vColor.a = 1.0;
