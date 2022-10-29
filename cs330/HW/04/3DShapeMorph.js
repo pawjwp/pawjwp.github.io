@@ -67,16 +67,6 @@ var shadedCube = function() {
 	
 	
 	aVertices = [
-        vec4(-0.5, -0.5,  0.5, 1.0),
-        vec4(-0.5,  0.5,  0.5, 1.0),
-        vec4(0.5,  0.5,  0.5, 1.0),
-        vec4(0.5, -0.5,  0.5, 1.0),
-        vec4(-0.5, -0.5, -0.5, 1.0),
-        vec4(-0.5,  0.5, -0.5, 1.0),
-        vec4(0.5,  0.5, -0.5, 1.0),
-        vec4(0.5, -0.5, -0.5, 1.0)
-	]
-	bVertices = [
         vec4(-0.25, -0.5,  0.5, 1.0),
         vec4(-0.25,  0.5,  0.25, 1.0),
         vec4(0.5,  0.25,  0.5, 1.0),
@@ -85,6 +75,16 @@ var shadedCube = function() {
         vec4(-0.25,  0.5, -0.25, 1.0),
         vec4(0.5,  0.25, -0.5, 1.0),
         vec4(0.5, -0.5, -0.25, 1.0)
+	]
+	bVertices = [
+        vec4(-0.5, -0.5,  0.5, 1.0),
+        vec4(-0.5,  0.5,  0.5, 1.0),
+        vec4(0.5,  0.5,  0.5, 1.0),
+        vec4(0.5, -0.5,  0.5, 1.0),
+        vec4(-0.5, -0.5, -0.5, 1.0),
+        vec4(-0.5,  0.5, -0.5, 1.0),
+        vec4(0.5,  0.5, -0.5, 1.0),
+        vec4(0.5, -0.5, -0.5, 1.0)
 	]
 	cVertices = [
         vec4(-0.5, -0.5,  0.5, 1.0),
@@ -312,12 +312,20 @@ var shadedCube = function() {
 		vec4((192/512)*2-1, (88/512)*-2+1, 0.0, -0.5)
 	];
 */
-	
+
 
 	var lightPosition = vec4(1.0, 1.0, 1.0, 0.0);
 	var lightAmbient = vec4(0.2, 0.2, 0.2, 1.0);
 	var lightDiffuse = vec4(1.0, 1.0, 1.0, 1.0);
 	var lightSpecular = vec4(1.0, 1.0, 1.0, 1.0);
+
+	// custom
+	//
+	var materialAmbient = vec4(0.0, 0.875, 1.0, 1.0);
+	var materialDiffuse = vec4(0.5, 0.75, 1.0, 1.0);
+	var materialSpecular = vec4(0.75, 1.0, 1.0, 1.0);
+	var materialShininess = 100.0;
+	//
 
 	// original
 	/*
@@ -384,12 +392,12 @@ var shadedCube = function() {
 	*/
 
 	// silver
-	//
+	/*
 	var materialAmbient  = vec4(0.19225 , 0.19225 , 0.19225 , 1.0);
 	var materialDiffuse  = vec4(0.50754 , 0.50754 , 0.50754 , 1.0);
 	var materialSpecular  = vec4(0.508273 , 0.508273 , 0.508273 , 1.0);
 	var materialShininess = 51.2;
-	//
+	*/
 
 	// polished silver
 	/*
