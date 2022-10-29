@@ -17,6 +17,8 @@ var theta = [0, 0, 0];
 
 var thetaLoc;
 
+var rotate = true;
+
 init();
 
 function init()
@@ -69,6 +71,9 @@ function init()
     document.getElementById( "zButton" ).onclick = function () {
         axis = zAxis;
     };
+    document.getElementById( "rotButton" ).onclick = function () {
+        rotate = !rotate;
+    };
 
     render();
 }
@@ -76,11 +81,11 @@ function init()
 function colorCube()
 {
     quad(1, 0, 3, 2);
-    quad(2, 3, 7, 6);
+    quad(1, 5, 4, 0);
     quad(3, 0, 4, 7);
-    quad(6, 5, 1, 2);
-    quad(4, 5, 6, 7);
-    quad(5, 4, 0, 1);
+    quad(2, 6, 5, 1);
+    quad(7, 4, 5, 6);
+    quad(2, 3, 7, 6);
 }
 
 function quad(a, b, c, d)
@@ -97,14 +102,14 @@ function quad(a, b, c, d)
     ];
 
     var vertexColors = [
-        vec4(0.0, 0.0, 0.0, 1.0),  // black
-        vec4(1.0, 0.0, 0.0, 1.0),  // red
-        vec4(1.0, 1.0, 0.0, 1.0),  // yellow
         vec4(0.0, 1.0, 0.0, 1.0),  // green
-        vec4(0.0, 0.0, 1.0, 1.0),  // blue
-        vec4(1.0, 0.0, 1.0, 1.0),  // magenta
         vec4(0.0, 1.0, 1.0, 1.0),  // cyan
-        vec4(1.0, 1.0, 1.0, 1.0)   // white
+        vec4(0.0, 0.0, 1.0, 1.0),  // blue
+        vec4(0.0, 1.0, 1.0, 1.0),  // cyan
+        vec4(0.0, 1.0, 1.0, 1.0),  // cyan
+        vec4(0.0, 0.0, 1.0, 1.0),  // blue
+        vec4(0.5, 0.0, 1.0, 1.0),  // purple
+        vec4(0.0, 0.0, 1.0, 1.0)   // blue
     ];
 
     // We need to parition the quad into two triangles in order for
@@ -116,11 +121,11 @@ function quad(a, b, c, d)
     var indices = [a, b, c, a, c, d];
 
     for ( var i = 0; i < indices.length; ++i ) {
-        positions.push( vertices[indices[i]] );
-        //colors.push( vertexColors[indices[i]] );
+        positions.push(vertices[indices[i]]);
+        colors.push(vertexColors[indices[i]]);
 
         // for solid colored faces use
-        colors.push(vertexColors[a]);
+        //colors.push(vertexColors[a]);
     }
 }
 
@@ -128,9 +133,10 @@ function render()
 {
     gl.clear( gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-    theta[axis] += 2.0;
+    if (rotate) theta[axis] += 2.0;
     gl.uniform3fv(thetaLoc, theta);
 
     gl.drawArrays(gl.TRIANGLES, 0, numPositions);
+    gl.drawArrays(gl.LINES, 0, 3);
     requestAnimationFrame(render);
 }
