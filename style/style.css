@@ -109,3 +109,14 @@ p {
 	margin-top: 0.75em;
 	margin-bottom: 0.375em;
 }
+
+.home-logo {
+	max-width: 640px;
+	min-width: 408px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.home-logo > img {
+	width: 100%;
+}
