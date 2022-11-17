@@ -13,7 +13,7 @@ window.onload = init;
 var numPlaneVertices  = 6;
 var numTriangleVertices = 3;
 
-var triangleInstanceMatrix, cubeInstanceMatrix;
+var triangleInstanceMatrix, planeInstanceMatrix;
 var projectionMatrix;
 var cameraViewMatrix;
 var lightProjectionMatrix;
@@ -45,14 +45,14 @@ var colorsArray = [];
 
 // object vertex and color data
 
-var cubeVertices = [
+var planeVertices = [
     vec4(-0.5, -0.5, 0.5, 1.2),
     vec4(0.5, -0.5, 0.5, 1.2),
     vec4(-0.5, -0.5, -0.5, 1.2),
     vec4(0.5, -0.5, -0.5, 1.2)
 ];
 
-var cubeColors = [
+var planeColors = [
     vec4(1.0, 0.0, 0.0, 1.0),  // red
     vec4(1.0, 1.0, 0.0, 1.0),  // yellow
     vec4(0.0, 1.0, 0.0, 1.0),  // green
@@ -74,18 +74,18 @@ var triangleColor = vec4(0.5, 0.5, 0.0, 1.0);
 init();
 
 function quad(a, b, c, d) {
-     positionsArray.push(cubeVertices[a]);
-     colorsArray.push(cubeColors[a]);
-     positionsArray.push(cubeVertices[b]);
-     colorsArray.push(cubeColors[a]);
-     positionsArray.push(cubeVertices[c]);
-     colorsArray.push(cubeColors[a]);
-     positionsArray.push(cubeVertices[a]);
-     colorsArray.push(cubeColors[a]);
-     positionsArray.push(cubeVertices[c]);
-     colorsArray.push(cubeColors[a]);
-     positionsArray.push(cubeVertices[d]);
-     colorsArray.push(cubeColors[a]);
+     positionsArray.push(planeVertices[a]);
+     colorsArray.push(planeColors[a]);
+     positionsArray.push(planeVertices[b]);
+     colorsArray.push(planeColors[a]);
+     positionsArray.push(planeVertices[c]);
+     colorsArray.push(planeColors[a]);
+     positionsArray.push(planeVertices[a]);
+     colorsArray.push(planeColors[a]);
+     positionsArray.push(planeVertices[c]);
+     colorsArray.push(planeColors[a]);
+     positionsArray.push(planeVertices[d]);
+     colorsArray.push(planeColors[a]);
 }
 
 function colorPlane()
@@ -230,12 +230,12 @@ function render() {
 
     if(flag) theta[axis] += 0.5;
 
-    cubeInstanceMatrix = mat4();
-    cubeInstanceMatrix = mult(cubeInstanceMatrix, rotateX(theta[xAxis] ));
-    cubeInstanceMatrix = mult(cubeInstanceMatrix, rotateY(theta[yAxis]));
-    cubeInstanceMatrix = mult(cubeInstanceMatrix, rotateZ(theta[zAxis]));
+    planeInstanceMatrix = mat4();
+    planeInstanceMatrix = mult(planeInstanceMatrix, rotateX(theta[xAxis] ));
+    planeInstanceMatrix = mult(planeInstanceMatrix, rotateY(theta[yAxis]));
+    planeInstanceMatrix = mult(planeInstanceMatrix, rotateZ(theta[zAxis]));
     gl.uniformMatrix4fv( gl.getUniformLocation(program1,
-            "uInstanceMatrix"), false, flatten(cubeInstanceMatrix) );
+            "uInstanceMatrix"), false, flatten(planeInstanceMatrix) );
 
     gl.drawArrays(gl.TRIANGLES, 0, numPlaneVertices);
 
@@ -292,7 +292,7 @@ function render() {
             "uModelViewMatrix"), false, flatten(cameraViewMatrix));
 
     gl.uniformMatrix4fv(gl.getUniformLocation(program2,
-            "uInstanceMatrix"), false, flatten(cubeInstanceMatrix));
+            "uInstanceMatrix"), false, flatten(planeInstanceMatrix));
     gl.drawArrays( gl.TRIANGLES, 0, numPlaneVertices);
 
 
