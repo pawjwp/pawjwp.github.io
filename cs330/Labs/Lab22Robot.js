@@ -69,6 +69,19 @@ var vBuffer;
 var modelViewLoc;
 
 var pointsArray = [];
+var normalsArray = [];
+var lightPosition = vec4(5.0, -2.0, 4.0, 0.0);
+var lightAmbient = vec4(0.2, 0.2, 0.2, 1.0);
+var lightDiffuse = vec4(1.0, 1.0, 1.0, 1.0);
+var lightSpecular = vec4(1.0, 1.0, 1.0, 1.0);
+var materialAmbient = vec4(1.0, 0.0, 1.0, 1.0);
+var materialDiffuse = vec4(1.0, 0.8, 0.0, 1.0);
+var materialSpecular = vec4(1.0, 0.8, 0.0, 1.0);
+var materialShininess = 100.0;
+var ambientColor, diffuseColor, specularColor;
+var viewerPos;
+
+var flag = true;
 
 init();
 
@@ -273,10 +286,18 @@ function rightLowerLeg() {
 }
 
 function quad(a, b, c, d) {
+    var t1 = subtract(vertices[b], vertices[a]);
+    var t2 = subtract(vertices[c], vertices[b]);
+    var normal = cross(t1, t2);
+    normal = vec3(normal);
      pointsArray.push(vertices[a]);
      pointsArray.push(vertices[b]);
      pointsArray.push(vertices[c]);
      pointsArray.push(vertices[d]);
+     normalsArray.push(normal);
+    normalsArray.push(normal);
+    normalsArray.push(normal);
+    normalsArray.push(normal);
 }
 
 
@@ -297,7 +318,7 @@ function init() {
 
     gl = canvas.getContext('webgl2');
     if (!gl) { alert( "WebGL 2.0 isn't available" ); }
-
+    gl.enable(gl.DEPTH_TEST);
     gl.viewport( 0, 0, canvas.width, canvas.height );
     gl.clearColor( 1.0, 1.0, 1.0, 1.0 );
 
@@ -319,6 +340,26 @@ function init() {
     modelViewMatrixLoc = gl.getUniformLocation(program, "modelViewMatrix")
 
     cube();
+    var nBuffer = gl.createBuffer();
+ gl.bindBuffer(gl.ARRAY_BUFFER, nBuffer);
+ gl.bufferData(gl.ARRAY_BUFFER, flatten(normalsArray),
+gl.STATIC_DRAW);
+ var normalLoc = gl.getAttribLocation(program, "aNormal");
+ gl.vertexAttribPointer(normalLoc, 3, gl.FLOAT, false, 0, 0);
+ gl.enableVertexAttribArray(normalLoc);
+ var ambientProduct = mult(lightAmbient, materialAmbient);
+ var diffuseProduct = mult(lightDiffuse, materialDiffuse);
+ var specularProduct = mult(lightSpecular, materialSpecular);
+ gl.uniform4fv(gl.getUniformLocation(program, "uAmbientProduct"),
+ambientProduct);
+ gl.uniform4fv(gl.getUniformLocation(program, "uDiffuseProduct"),
+diffuseProduct );
+ gl.uniform4fv(gl.getUniformLocation(program, "uSpecularProduct"),
+specularProduct );
+ gl.uniform4fv(gl.getUniformLocation(program, "uLightPosition"),
+lightPosition );
+ gl.uniform1f(gl.getUniformLocation(program,
+ "uShininess"), materialShininess);
 
     vBuffer = gl.createBuffer();
     gl.bindBuffer( gl.ARRAY_BUFFER, vBuffer );
@@ -340,6 +381,8 @@ function init() {
     theta[head2Id] = 90;
     for(i=0; i<numNodes; i++) initNodes(i);
 
+    document.getElementById("ButtonT").onclick = function(){flag = !flag;};
+    
     render();
 }
 
@@ -347,6 +390,14 @@ function init() {
 function render() {
 
         gl.clear( gl.COLOR_BUFFER_BIT );
+        gl.clear( gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+        if (flag) {
+            for(i=0; i<numNodes; i++)
+            {
+                theta[i] += i;
+                initNodes(i);
+            }
+        }
 
         traverse(torsoId);
         requestAnimationFrame(render);
