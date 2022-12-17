@@ -108,15 +108,71 @@ h6 {
 p {
 	margin-top: 0.75em;
 	margin-bottom: 0.375em;
+	line-height: 150%;
 }
 
-.home-logo {
-	max-width: 640px;
+p > a {
+	text-decoration: none;
+	color: #b6d1ff;
+}
+
+.center-text {
+	text-align: center;
+}
+
+.center-image {
 	min-width: 408px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-.home-logo > img {
+.center-image > img {
 	width: 100%;
+}
+
+.home-logo {
+	max-width: 640px;
+}
+
+.square-logo {
+	max-width: 408px;
+}
+
+.quest-image {
+	max-width: 800px;
+}
+
+.map-image {
+	max-width: 640px;
+}
+
+.bags-image {
+	max-width: 864px;
+	image-rendering: pixelated;
+}
+
+.bag-image {
+	max-width: 256px;
+	image-rendering: pixelated;
+}
+
+.quest-description {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: justify;
+	max-width: 800px;
+}
+
+.map-description {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: justify;
+	max-width: 768px;
+}
+
+.bag-description {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: justify;
+	max-width: 768px;
 }
