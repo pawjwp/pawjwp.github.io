@@ -157,7 +157,7 @@ p > a {
 }
 
 .items-image {
-	max-width: 720px;
+	max-width: 640px;
 	image-rendering: pixelated;
 }
 
@@ -166,37 +166,10 @@ p > a {
 	image-rendering: pixelated;
 }
 
-.quest-description {
+.description {
 	margin-left: auto;
 	margin-right: auto;
 	text-align: justify;
-	max-width: 800px;
-}
-
-.map-description {
-	margin-left: auto;
-	margin-right: auto;
-	text-align: justify;
-	max-width: 768px;
-}
-
-.bag-description {
-	margin-left: auto;
-	margin-right: auto;
-	text-align: justify;
-	max-width: 768px;
-}
-
-.items-description {
-	margin-left: auto;
-	margin-right: auto;
-	text-align: justify;
-	max-width: 720px;
-}
-
-.tinkers-description {
-	margin-left: auto;
-	margin-right: auto;
-	text-align: justify;
+    text-align-last: center;
 	max-width: 832px;
 }
