@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prototype Hobby Tracking App</title>
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0f0f0;
+    }
+    .page {
+        height: 100%;
+        width: auto;
+        position: absolute;
+        display: none;
+    }
+    .button {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+    .backButton {
+        position: absolute;
+        cursor: pointer;
+    }
+    #Login {
+        display: block;
+    }
+	
+	body, html, .page, img {
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+
+	.background-image {
+		pointer-events: none;
+	}
+</style>
+</head>
+<body>
+<div id="Login" class="page current">
+	<img class="backButton" src="Back.png" onclick="back()" style="bottom: 0%; right: 0%; height: 50px; width: 50px;">
+	
+    <img class="background-image" src="Login.png" style="height: 100%;">
+    <div class="button" style="top: 62%; left: 25%; height: 9%; width: 50%;" onclick="switchPage('Feed', false)"></div>
+</div>
+
+<div id="Feed" class="page">
+	<img class="backButton" src="Back.png" onclick="back()" style="bottom: 0%; right: 0%; height: 50px; width: 50px;">
+	
+    <img class="background-image" src="Feed.png" style="height: 100%;">
+    <div class="button" style="top: 0%; left: 0%; height: 13%; width: 20%;" onclick="switchPage('Menu', false)"></div>
+    <div class="button" style="top: 15%; left: 0%; height: 5.6%; width: 100%;" onclick="switchPage('Select_Hobby', false)"></div>
+    <div class="button" style="top: 20.6%; left: 0%; height: 18%; width: 100%;" onclick="switchPage('Hobby', false)"></div>
+    <div class="button" style="top: 38.6%; left: 0%; height: 7.5%; width: 100%;" onclick="switchPage('Friends', false)"></div>
+    <div class="button" style="top: 46.1%; left: 0%; height: 20%; width: 100%;" onclick="switchPage('Hobby', false)"></div>
+    <div class="button" style="top: 66.1%; left: 0%; height: 8.3%; width: 100%;" onclick="switchPage('Add_New_Hobby', false)"></div>
+    <div class="button" style="top: 74.4%; left: 0%; height: 20%; width: 100%;" onclick="switchPage('Hobby', false)"></div>
+</div>
+
+<div id="Menu" class="page">
+	<img class="backButton" src="Back.png" onclick="back()" style="bottom: 0%; right: 0%; height: 50px; width: 50px;">
+	
+    <img class="background-image" src="Menu.png" style="height: 100%;">
+    <div class="button" style="top: 0%; left: 52%; height: 100%; width: 48%;" onclick="back()"></div>
+    <div class="button" style="top: 15%; left: 0%; height: 8.5%; width: 52%;" onclick="switchPage('Feed', false)"></div>
+    <div class="button" style="top: 23.5%; left: 0%; height: 8.25%; width: 52%;" onclick="switchPage('Select_Hobby_My_Hobbies', false)"></div>
+    <div class="button" style="top: 31.75%; left: 0%; height: 7.25%; width: 52%;" onclick="switchPage('Calendar', false)"></div>
+    <div class="button" style="top: 39.5%; left: 0%; height: 9.5%; width: 52%;" onclick="switchPage('Friends', false)"></div>
+    <div class="button" style="top: 48%; left: 0%; height: 8.75%; width: 52%;" onclick="switchPage('Select_Hobby_Statistics', false)"></div>
+</div>
+
+<div id="Select_Hobby_My_Hobbies" class="page">
+	<img class="backButton" src="Back.png" onclick="back()" style="bottom: 0%; right: 0%; height: 50px; width: 50px;">
+	
+    <img class="background-image" src="Select_Hobby.png" style="height: 100%;">
+    <div class="button" style="top: 0%; left: 0%; height: 13%; width: 20%;" onclick="switchPage('Menu', false)"></div>
+    <div class="button" style="top: 22.75%; left: 11.5%; height: 77.25%; width: 80%;" onclick="switchPage('Hobby', false)"></div>
+    <div class="button" style="top: 17.5%; left: 62.5%; height: 5.5%; width: 33%;" onclick="switchPage('Add_New_Hobby', false)"></div>
+</div>
+
+<div id="Select_Hobby_Statistics" class="page">
+	<img class="backButton" src="Back.png" onclick="back()" style="bottom: 0%; right: 0%; height: 50px; width: 50px;">
+	
+    <img class="background-image" src="Select_Hobby.png" style="height: 100%;">
+    <div class="button" style="top: 0%; left: 0%; height: 13%; width: 20%;" onclick="switchPage('Menu', false)"></div>
+    <div class="button" style="top: 22.75%; left: 11.5%; height: 77.25%; width: 80%;" onclick="switchPage('Statistics', false)"></div>
+    <div class="button" style="top: 17.5%; left: 62.5%; height: 5.5%; width: 33%;" onclick="switchPage('Add_New_Hobby', false)"></div>
+</div>
+
+<div id="Hobby" class="page">
+	<img class="backButton" src="Back.png" onclick="back()" style="bottom: 0%; right: 0%; height: 50px; width: 50px;">
+	
+    <img class="background-image" src="Hobby.png" style="height: 100%;">
+    <div class="button" style="top: 0%; left: 0%; height: 13%; width: 20%;" onclick="switchPage('Menu', false)"></div>
+    <div class="button" style="top: 40.5%; left: 12.5%; height: 24%; width: 75%;" onclick="switchPage('Calendar', false)"></div>
+    <div class="button" style="top: 65%; left: 12.5%; height: 24%; width: 45%;" onclick="switchPage('Statistics', false)"></div>
+</div>
+
+<div id="Statistics" class="page">
+	<img class="backButton" src="Back.png" onclick="back()" style="bottom: 0%; right: 0%; height: 50px; width: 50px;">
+	
+    <img class="background-image" src="Statistics.png" style="height: 100%;">
+    <div class="button" style="top: 0%; left: 0%; height: 13%; width: 20%;" onclick="switchPage('Menu', false)"></div>
+</div>
+
+<div id="Calendar" class="page">
+	<img class="backButton" src="Back.png" onclick="back()" style="bottom: 0%; right: 0%; height: 50px; width: 50px;">
+	
+    <img class="background-image" src="Calendar.png" style="height: 100%;">
+    <div class="button" style="top: 0%; left: 0%; height: 13%; width: 20%;" onclick="switchPage('Menu', false)"></div>
+</div>
+
+<div id="Add_New_Hobby" class="page">
+	<img class="backButton" src="Back.png" onclick="back()" style="bottom: 0%; right: 0%; height: 50px; width: 50px;">
+	
+    <img class="background-image" src="Add_New_Hobby.png" style="height: 100%;">
+    <div class="button" style="top: 0%; left: 0%; height: 13%; width: 20%;" onclick="switchPage('Menu', false)"></div>
+    <div class="button" style="top: 19%; left: 8.5%; height: 81%; width: 91%;" onclick="switchPage('Create_Hobby', false)"></div>
+</div>
+
+<div id="Create_Hobby" class="page">
+	<img class="backButton" src="Back.png" onclick="back()" style="bottom: 0%; right: 0%; height: 50px; width: 50px;">
+	
+    <img class="background-image" src="Create_Hobby.png" style="height: 100%;">
+    <div class="button" style="top: 0%; left: 0%; height: 13%; width: 20%;" onclick="switchPage('Menu', false)"></div>
+    <div class="button" style="top: 85%; left: 32%; height: 12.5%; width: 36%;" onclick="switchPage('Hobby', false)"></div>
+</div>
+
+<div id="Friends" class="page">
+	<img class="backButton" src="Back.png" onclick="back()" style="bottom: 0%; right: 0%; height: 50px; width: 50px;">
+	
+    <img class="background-image" src="Friends.png" style="height: 100%;">
+    <div class="button" style="top: 0%; left: 0%; height: 13%; width: 20%;" onclick="switchPage('Menu', false)"></div>
+    <div class="button" style="top: 62%; left: 25%; height: 10%; width: 50%;" onclick="switchPage('page2', false)"></div>
+</div>
+
+<script>
+    var historyStack = [];
+	
+	function switchPage(pageId, back) {
+		// Access the currently active page before changing anything
+		if (!back) {
+			var currentPage = document.querySelector('.current');
+			if (currentPage) {
+				historyStack.push(currentPage.id);
+			}
+		}
+
+		var pages = document.querySelectorAll('.page');
+		pages.forEach(page => {
+			page.style.display = 'none';
+			page.classList.remove('current'); // Ensure no page has the 'current' class
+		});
+		
+		var pageToShow = document.getElementById(pageId);
+		pageToShow.style.display = 'block';
+		pageToShow.classList.add('current'); // Mark the new page as 'current'
+		
+		console.log(historyStack);
+	}
+
+    function back() {
+        var lastPageId = historyStack.pop();
+        if (lastPageId) {
+            switchPage(lastPageId, true);
+        }
+		
+		console.log(historyStack);
+    }
+
+    function backback() {
+        back();
+		back();
+    }
+
+	// Global variables to track dragging state
+/*	var isDragging = false;
+	var startPos = { x: 0, y: 0 };
+	var dragTimeout = null;
+	var boxElement = null;
+
+	document.addEventListener('mousedown', function(event) {
+		startPos.x = event.pageX;
+		startPos.y = event.pageY;
+		dragTimeout = setTimeout(function() {
+			isDragging = true;
+
+			if (!boxElement) {
+				boxElement = document.createElement('div');
+				document.body.appendChild(boxElement);
+				boxElement.style.position = 'absolute';
+				boxElement.style.border = '2px dashed red';
+				boxElement.style.zIndex = '1000';
+				boxElement.style.pointerEvents = 'none';
+			}
+
+			boxElement.style.left = startPos.x + 'px';
+			boxElement.style.top = startPos.y + 'px';
+			boxElement.style.width = '0px';
+			boxElement.style.height = '0px';
+			boxElement.textContent = '';
+		}, 100);
+	});
+	
+	document.addEventListener('mousemove', function(event) {
+		if (isDragging) {
+			var currentPos = { x: event.pageX, y: event.pageY };
+			var width = Math.abs(currentPos.x - startPos.x);
+			var height = Math.abs(currentPos.y - startPos.y);
+
+			boxElement.style.width = width + 'px';
+			boxElement.style.height = height + 'px';
+			boxElement.style.left = (currentPos.x < startPos.x ? currentPos.x : startPos.x) + 'px';
+			boxElement.style.top = (currentPos.y < startPos.y ? currentPos.y : startPos.y) + 'px';
+
+			// Select the image from the currently active page
+			var image = document.querySelector('.current .background-image');
+			if (image) {
+				var imageRect = image.getBoundingClientRect();
+				var xPercent = (((Math.min(startPos.x, event.pageX) - imageRect.left) / imageRect.width) * 100).toFixed(2);
+				var yPercent = (((Math.min(startPos.y, event.pageY) - imageRect.top) / imageRect.height) * 100).toFixed(2);
+				var widthPercent = ((width / imageRect.width) * 100).toFixed(2);
+				var heightPercent = ((height / imageRect.height) * 100).toFixed(2);
+
+				boxElement.textContent = `top: ${yPercent}%; left: ${xPercent}%; height: ${heightPercent}%, width: ${widthPercent}%;`;
+			} else {
+				boxElement.textContent = "No image found!";
+			}
+		}
+	});
+
+	document.addEventListener('mouseup', function(event) {
+		if (dragTimeout) {
+			clearTimeout(dragTimeout); // Clear the timeout if mouse is released before dragging
+		}
+		if (isDragging) {
+			isDragging = false;
+		}
+	});*/
+</script>
+</body>
+</html>
